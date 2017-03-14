@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Factorial.h"
 
 int main() {
