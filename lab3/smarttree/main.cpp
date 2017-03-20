@@ -19,16 +19,6 @@ int main(){
     root->left = InsertRightChild(move(root->left), CreateLeaf(4321));
     root->right = InsertLeftChild(move(root->right), CreateLeaf(897));
     root->right = InsertRightChild(move(root->right), CreateLeaf(761));
-    //cout<<DumpTree(root);
-
-    regex pattern {R"(\[{1}(\d*)\s*)"};
-    string line = {"[99 "};
-    smatch matches;
-    if (regex_match(line, matches, pattern)) {
-        cout<<"udało się dopasować do linii: "<<line<<endl;
-        cout<<"zerowa grupa przechwytująca to całe dopasowanie: "<<matches[0]<<endl;
-        cout<<"pierwsza grupa przechwytująca to napis: "<<matches[1]<<endl;
-        cout<<"druga grupa przechwytująca to liczba: "<<matches[2]<<endl;
-    }
-
+    cout<<DumpTree(root)<<endl;
+    cout<<DumpTree(RestoreTree("[-9997 [98 [none] [none]] [99 [none] [none]]]"))<<endl;
 }

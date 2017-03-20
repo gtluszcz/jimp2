@@ -62,8 +62,67 @@ namespace datastructures {
         return dump;
     }
 
-    std::unique_ptr<SmartTree> RestoreTree(const std::string &tree){
-        //std::regex pattern {R"((\d*)\s([.*])\s([.*]))"};
+    std::unique_ptr<SmartTree> RestoreTree(const std::string &tree) {
+        if (tree == "[none]") {
+            return nullptr;
+        }
+        int iterator = 1;
+        std::string value;
+        unsigned long stringsize = tree.length();
 
+        while (iterator < stringsize){
+            if (tree[iterator]==' '){
+                value=tree.substr(1, iterator);
+                iterator++;
+                break;
+            }
+            iterator++;
+        }
+        //left child
+        int bracketscounter = 0;
+        int leftstart = iterator;
+        std::string leftchild;
+        while (iterator < stringsize){
+            if (tree[iterator]=='['){
+                bracketscounter+=1;
+            }
+            else if (tree[iterator]==']'){
+                bracketscounter-=1;
+            }
+            if (bracketscounter==0){
+                leftchild = tree.substr(leftstart, iterator-leftstart+1);
+                iterator+=2;
+                break;
+            }
+            iterator++;
+        }
+
+        //right child
+        bracketscounter = 0;
+        int rightstart = iterator;
+        std::string rightchild;
+        while (iterator < stringsize){
+            if (tree[iterator]=='['){
+                bracketscounter+=1;
+            }
+            else if (tree[iterator]==']'){
+                bracketscounter-=1;
+            }
+            if (bracketscounter==0){
+                rightchild = tree.substr(rightstart, iterator-rightstart+1);
+                iterator++;
+                break;
+            }
+            iterator++;
+        }
+
+//        std::cout<<std::stoi(value)<<std::endl;
+//        std::cout<<leftchild<<std::endl;
+//        std::cout<<rightchild<<std::endl;
+        auto root = CreateLeaf(std::stoi(value));
+        root->left = RestoreTree(leftchild);
+        root->right = RestoreTree(rightchild);
+        return root;
     }
+
 }
