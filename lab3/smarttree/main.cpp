@@ -19,6 +19,6 @@ int main(){
     root->left = InsertRightChild(move(root->left), CreateLeaf(4321));
     root->right = InsertLeftChild(move(root->right), CreateLeaf(897));
     root->right = InsertRightChild(move(root->right), CreateLeaf(761));
-    cout<<DumpTree(root)<<endl;
-    cout<<DumpTree(RestoreTree("[-9997 [98 [none] [none]] [99 [none] [none]]]"))<<endl;
+    //cout<<DumpTree(root)<<endl;
+    //cout<<DumpTree(RestoreTree(DumpTree(root)))<<endl;
 }
