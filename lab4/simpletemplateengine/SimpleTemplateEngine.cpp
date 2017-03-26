@@ -7,6 +7,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <regex>
+#include <vector>
 namespace nets{
 
         //Konstruktor bezparametrowy
@@ -28,20 +29,29 @@ namespace nets{
             std::regex pattern ("(\\{\\{[A-Za-z0-9_]+\\}\\})");
             std::string line = this->temp;
             std::smatch match;
-            while (regex_search(line, match, pattern)) {
+            std::string search = line;
+
+            while (regex_search(search, match, pattern)) {
                 int replaced = 0;
                 std::string match_str = match.str();
                 int size = match_str.length();
                 for (auto &n : model) {
                     if(("{{"+n.first+"}}") == match_str) {
                         line.replace(match.position(), size, n.second);
+                        search =line;
+                        for (int k=0; k<(match.position()+n.second.length()) ;k++){
+                            search[k]=' ';
+                        }
                         replaced = 1;
                         break;
                     }
                 }
                 if (replaced == 0){
                     line.replace(match.position(), size, "");
+                    search =line;
+
                 }
+                std::cout<<search<<std::endl;
             }
             return line;
         }

@@ -9,7 +9,7 @@ using namespace nets;
 using namespace std;
 
 int main(){
-    View view = View::View("{{template_with_underscore}} cos {{temp}} cos {{template_with_undersocre_missing}}");
+    View view = View::View("Test {{test}} {{injected}}");
     cout<<view.GetTekst()<<endl;
-    cout<<view.Render({{"template_with_underscore", "replacement"}});
+    cout<<view.Render({{"test", "{{injected}}"}, {"injected", "{{test}}"}});
 }
