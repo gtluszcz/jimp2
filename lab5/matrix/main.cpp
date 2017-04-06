@@ -37,15 +37,15 @@ int main() {
     }
 
     cout << endl << "Multiplication of matrix by number:" << endl;
-    m1.multiply(complex<double>(3, 7)).Print();
+    m1.Mul(complex<double>(3, 7)).Print();
     cout << endl << "Multiplication of matrix by matrix:" << endl;
     Matrix m5("[1 2 3; 3 4 5]");
     Matrix m6("[1 4.4; 2 5; 3 6]");
-    m5.multiply(m6).Print();
+    m5.Mul(m6).Print();
 
     cout << endl << "Matrix 7 to the power of two is:" << endl;
     Matrix m7("[1 2 3; 4 5 6; 7 8 9]");
-    m7.pow(2).Print();
+    m7.Pow(2).Print();
 
     return 0;
 }

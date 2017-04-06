@@ -26,9 +26,9 @@ namespace algebra {
         pair<size_t, size_t> Size();
         Matrix Add(Matrix matrix);
         Matrix Sub(Matrix matrix);
-        Matrix multiply(Matrix matrix);
-        Matrix multiply(complex<double> number);
-        Matrix pow(int number);
+        Matrix Mul(Matrix matrix);
+        Matrix Mul(complex<double> number);
+        Matrix Pow(int number);
         complex<double> ** getMatrix();
         int getWidth();
         int getHeight();

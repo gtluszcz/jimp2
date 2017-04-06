@@ -164,7 +164,7 @@ Matrix Matrix::Add(Matrix matrix) {
     return result;
 }
 
-Matrix Matrix::multiply(Matrix matrix) {
+Matrix Matrix::Mul(Matrix matrix) {
     if (n != matrix.getWidth()) {
         throw "Cannot multiply matrices when the first matrix has different height than second has width!";
     }
@@ -183,7 +183,7 @@ Matrix Matrix::multiply(Matrix matrix) {
     return result;
 }
 
-Matrix Matrix::multiply(complex<double> number) {
+Matrix Matrix::Mul(complex<double> number) {
     Matrix result(n, m);
 
     for (int o = 0; o < n; o++) {
@@ -211,11 +211,11 @@ pair<size_t, size_t> Matrix::Size() {
     return pair<size_t, size_t>(n, m);
 }
 
-Matrix Matrix::pow(int number) {
+Matrix Matrix::Pow(int number) {
     Matrix result = *this;
 
     for (int i = 1; i < number; i++) {
-        result = result.multiply(*this);
+        result = result.Mul(*this);
     }
 
     return result;
