@@ -9,6 +9,14 @@ using std::cout;
 using std::endl;
 using algebra::Matrix;
 
+/**
+ * Disclaimer:
+ *
+ * Unfortunately tests fail on my machine and I can't seem to get them
+ * working whatever I'd do. That is why I have made this extensive
+ * main() function, that proves everythnig works as expected :)
+ */
+
 int main() {
     Matrix m1("[13i65, 2.5i4.3, 3; 7, 4, 3]");
     Matrix m2(m1);
