@@ -37,12 +37,12 @@ Matrix::~Matrix() {
 //    cout << "Do widzenia!"<<endl;
 }
 
-Matrix::Matrix(std::string matlabowe_cos) {
+Matrix::Matrix(std::string matlab_format) {
     int n = 1, m = 1;
     string::size_type sz;
     string liczba = "", liczba_re = "", liczba_im = "";
     double liczba_double, liczba_re_double,liczba_im_double;
-    for (string::iterator it = matlabowe_cos.begin(); it != matlabowe_cos.end(); ++it) {
+    for (string::iterator it = matlab_format.begin(); it != matlab_format.end(); ++it) {
         if (*it == 32) m++;
         if (*it == 59) n++;
     }
@@ -55,7 +55,7 @@ Matrix::Matrix(std::string matlabowe_cos) {
     }
 
     int i = 0, j = 0;
-    for (string::iterator it = matlabowe_cos.begin(); it != matlabowe_cos.end(); ++it) {
+    for (string::iterator it = matlab_format.begin(); it != matlab_format.end(); ++it) {
         if ((*it <= 57 && *it >= 48) ||  *it == 105 || *it == 46) {
             //cout << " ";
             liczba += *it;
