@@ -30,11 +30,11 @@ Matrix::Matrix(Matrix &ziemniak) {
 }
 
 Matrix::Matrix() {
-    cout << "Dzien dobry, tu Twoja macierz."<<endl;
+//    cout << "Dzien dobry, tu Twoja macierz."<<endl;
 }
 
 Matrix::~Matrix() {
-    cout << "Do widzenia!"<<endl;
+//    cout << "Do widzenia!"<<endl;
 }
 
 Matrix::Matrix(std::string matlabowe_cos) {
@@ -116,4 +116,32 @@ void Matrix::Print() {
         }
         cout<<endl;
     }
+}
+
+Matrix Matrix::add(Matrix matrix) {
+    if (m != matrix.getWidth() || n != matrix.getHeight()) {
+        throw "Cannot add matrices of different sizes!";
+    }
+
+    Matrix result(matrix.getHeight(), matrix.getWidth());
+
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < m; p++) {
+            result.getMatrix()[o][p] = macierz[o][p] + matrix.getMatrix()[o][p];
+        }
+    }
+
+    return result;
+}
+
+complex<double> ** Matrix::getMatrix() {
+    return macierz;
+}
+
+int Matrix::getHeight() {
+    return n;
+}
+
+int Matrix::getWidth() {
+    return m;
 }

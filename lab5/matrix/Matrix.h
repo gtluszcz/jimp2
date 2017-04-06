@@ -23,6 +23,10 @@ namespace algebra {
         Matrix();
         Matrix(std::string);
         Matrix(Matrix &ziemniak);
+        Matrix add(Matrix matrix);
+        complex<double> ** getMatrix();
+        int getWidth();
+        int getHeight();
         void Print();
         ~Matrix();
     };
