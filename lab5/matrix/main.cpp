@@ -10,7 +10,7 @@ using std::endl;
 using algebra::Matrix;
 
 int main() {
-    Matrix m1("[13i65 2.5i4.3 3; 7 4 3]");
+    Matrix m1("[13i65, 2.5i4.3, 3; 7, 4, 3]");
     Matrix m2(m1);
 
     cout << "Matrix one is:" << endl;
@@ -40,7 +40,7 @@ int main() {
     m1.multiply(complex<double>(3, 7)).Print();
     cout << endl << "Multiplication of matrix by matrix:" << endl;
     Matrix m5("[1 2 3; 3 4 5]");
-    Matrix m6("[1 4; 2 5; 3 6]");
+    Matrix m6("[1 4.4; 2 5; 3 6]");
     m5.multiply(m6).Print();
 
     return 0;
