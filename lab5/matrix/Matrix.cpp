@@ -16,15 +16,15 @@ Matrix::Matrix(int n, int m) {
     }
 }
 
-Matrix::Matrix(Matrix &ziemniak) {
-    n = ziemniak.n;
-    m = ziemniak.m;
+Matrix::Matrix(Matrix &matrix) {
+    n = matrix.n;
+    m = matrix.m;
     macierz = new complex<double>*[n];
     for (int i=0; i<n; ++i){
         macierz[i] = new complex<double>[m];
         for(int x=0;x<m;x++)
         {
-            macierz[i][x]=ziemniak.macierz[i][x];
+            macierz[i][x]=matrix.macierz[i][x];
         }
     }
 }

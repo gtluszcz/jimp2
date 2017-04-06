@@ -22,7 +22,7 @@ namespace algebra {
         Matrix(int, int);
         Matrix();
         Matrix(std::string);
-        Matrix(Matrix &ziemniak);
+        Matrix(Matrix &matrix);
         pair<size_t, size_t> Size();
         Matrix Add(Matrix matrix);
         Matrix Sub(Matrix matrix);
