@@ -8,10 +8,10 @@
 using algebra::Matrix;
 
 Matrix::Matrix(int n, int m) {
-    this->n=n;
-    this->m=m;
+    this->n = n;
+    this->m = m;
     macierz = new complex<double>*[n];
-    for (int i=0; i<n; ++i){
+    for (int i = 0; i < n; i++) {
         macierz[i] = new complex<double>[m];
     }
 }
@@ -20,54 +20,75 @@ Matrix::Matrix(Matrix &matrix) {
     n = matrix.n;
     m = matrix.m;
     macierz = new complex<double>*[n];
-    for (int i=0; i<n; ++i){
+    for (int i = 0; i < n; i++){
         macierz[i] = new complex<double>[m];
-        for(int x=0;x<m;x++)
-        {
-            macierz[i][x]=matrix.macierz[i][x];
+        for (int x = 0; x < m; x++) {
+            macierz[i][x] = matrix.macierz[i][x];
         }
     }
 }
 
 Matrix::Matrix() {
-//    cout << "Dzien dobry, tu Twoja macierz."<<endl;
+    //
 }
 
 Matrix::~Matrix() {
-//    cout << "Do widzenia!"<<endl;
+    for (int i = 0; i < n; i++) {
+        delete [] macierz[i];
+    }
+    delete [] macierz;
 }
 
 Matrix::Matrix(std::string matlab_format) {
-    int n = 1, m = 1;
+    int n = 1,
+        m = 1;
+
     string::size_type sz;
-    string liczba = "", liczba_re = "", liczba_im = "";
-    double liczba_double, liczba_re_double,liczba_im_double;
-    for (string::iterator it = matlab_format.begin(); it != matlab_format.end(); ++it) {
-        if (*it == 32) m++;
-        if (*it == 59) n++;
+
+    string liczba = "",
+           liczba_re = "",
+           liczba_im = "";
+
+    double liczba_double,
+           liczba_re_double,
+           liczba_im_double;
+
+    for (string::iterator it = matlab_format.begin(); it != matlab_format.end(); it++) {
+        if (*it == 32) {
+            m++;
+        }
+        if (*it == 59) {
+            n++;
+        }
     }
-    m=m/n;
+
+    m = m / n;
+
     this->n = n;
     this->m = m;
-    macierz = new complex<double> *[n];
+
+    macierz = new complex<double>*[n];
+
     for (int i = 0; i < n; ++i) {
         macierz[i] = new complex<double>[m];
     }
 
-    int i = 0, j = 0;
-    for (string::iterator it = matlab_format.begin(); it != matlab_format.end(); ++it) {
-        if ((*it <= 57 && *it >= 48) ||  *it == 105 || *it == 46) {
-            //cout << " ";
-            liczba += *it;
+    int i = 0,
+        j = 0;
 
-        }
-        else if (*it == ' ' || *it == ']') {
+    for (string::iterator it = matlab_format.begin(); it != matlab_format.end(); it++) {
+        if ((*it <= 57 && *it >= 48) ||  *it == 105 || *it == 46) {
+            liczba += *it;
+        } else if (*it == ' ' || *it == ']') {
             if (liczba.find("i") != string::npos) {
                 liczba_re = liczba.substr(0, liczba.find("i"));
-                liczba_im = liczba.substr(liczba.find("i")+1, liczba.length()-liczba.find("i"));
+                liczba_im = liczba.substr(liczba.find("i") + 1, liczba.length() - liczba.find("i"));
+
                 liczba_re_double = stod(liczba_re, &sz);
                 liczba_im_double = stod(liczba_im, &sz);
+
                 macierz[i][j] = complex<double>(liczba_re_double, liczba_im_double);
+
                 j++;
                 liczba = "";
                 liczba_re = "";
@@ -75,27 +96,31 @@ Matrix::Matrix(std::string matlab_format) {
             } else {
                 liczba_double = stod(liczba, &sz);
                 macierz[i][j] = complex<double>(liczba_double);
+
                 j++;
                 liczba = "";
             }
-        }
-        else if (*it == 59) {
+        } else if (*it == 59) {
             if (liczba.find("i") != string::npos) {
                 liczba_re = liczba.substr(0, liczba.find("i"));
-                liczba_im = liczba.substr(liczba.find("i")+1, liczba.length()-liczba.find("i"));
+                liczba_im = liczba.substr(liczba.find("i") + 1, liczba.length() - liczba.find("i"));
+
                 liczba_re_double = stod(liczba_re, &sz);
                 liczba_im_double = stod(liczba_im, &sz);
+
                 macierz[i][j] = complex<double>(liczba_re_double, liczba_im_double);
+
                 i++;
-                j=0;
+                j = 0;
                 liczba = "";
                 liczba_re = "";
                 liczba_im = "";
             } else {
                 liczba_double = stod(liczba, &sz);
                 macierz[i][j] = complex<double>(liczba_double);
+
                 i++;
-                j=0;
+                j = 0;
                 liczba = "";
 
             }
@@ -107,55 +132,63 @@ Matrix::Matrix(std::string matlab_format) {
 
 string Matrix::Print() {
     string liczba;
-    liczba+="[";
-    for(int o=0;o<n;o++){
-        for(int p=0;p<m;p++){
-            string data= to_string(macierz[o][p].real());
-            for(int j=0;j<data.length();j++){
+    liczba += "[";
+
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < m; p++) {
+            string data = to_string(macierz[o][p].real());
+
+            for (int j = 0; j < data.length(); j++){
                 bool slice = true;
-                for (int k=data.length()-1;k>=j;k-=1){
-                    if (data[k]!='0'){slice=false;}
+                for (int k = data.length() - 1; k >= j; k -= 1){
+                    if (data[k] != '0'){
+                        slice = false;
+                    }
                 }
                 if (slice){
-                    data = data.substr(0,j);
+                    data = data.substr(0, j);
                     break;
                 }
             }
 
-            if (data[data.length()-1] == '.'){
-                data = data.substr(0,data.length()-1);
+            if (data[data.length() - 1] == '.'){
+                data = data.substr(0, data.length() - 1);
             }
 
             liczba += data;
 
-            if (macierz[o][p].imag()!=0) {
-               string data2= to_string(macierz[o][p].imag());
-               for(int j=0;j<data2.length();j++){
+            if (macierz[o][p].imag() != 0) {
+               string data2 = to_string(macierz[o][p].imag());
+               for (int j = 0; j < data2.length(); j++){
                    bool slice = true;
-                   for (int k=data2.length()-1;k>=j;k-=1){
-                       if (data2[k]!='0'){
-                           slice=false;
+                   for (int k = data2.length() - 1; k >= j; k -= 1){
+                       if (data2[k] != '0'){
+                           slice = false;
                        }
                    }
-                   if (slice){
-                       data2 = data2.substr(0,j);
+                   if (slice) {
+                       data2 = data2.substr(0, j);
                        break;
                    }
                }
-               if (data2[data2.length()-1] == '.'){
-                   data2 = data2.substr(0,data2.length()-1);
+
+               if (data2[data2.length() - 1] == '.') {
+                   data2 = data2.substr(0, data2.length() - 1);
                }
-               liczba += "i"+data2;
+
+               liczba += "i" + data2;
             } else {
                 liczba += "i0";
             }
             liczba += ", ";
         }
-        liczba=liczba.substr(0,liczba.length()-2);
-        liczba+="; ";
+        liczba = liczba.substr(0, liczba.length() - 2);
+        liczba += "; ";
     }
-    liczba=liczba.substr(0,liczba.length()-2);
-    liczba+="]";
+
+    liczba = liczba.substr(0, liczba.length() - 2);
+    liczba += "]";
+
     return liczba;
 }
 
@@ -223,38 +256,36 @@ pair<size_t, size_t> Matrix::Size() {
 }
 
 Matrix::Matrix(std::initializer_list<std::vector<std::complex<double>>> matrix_list) {
-
     int num_row = int(matrix_list.size());
+
     unsigned long num_col =0;
-    for(auto row : matrix_list)                    // ogarnianie rozmiaru arraya
-    {
+
+    for (auto row : matrix_list) {
         num_col = row.size();
         break;
     }
 
-    n = int(num_col);                          // USUNALEM NEW_MATRIX!!!!
+    n = int(num_col);
     m = num_row;
 
-    std::complex<double> **tablica = new std::complex<double>  *[m]; //alokacja pamieci na array
-    for (int i=0; i< m; i++)
-        tablica[i]=new std::complex<double>  [n];
+    std::complex<double> ** tablica = new std::complex<double>*[m];
+    for (int i=0; i< m; i++) {
+        tablica[i] = new std::complex<double>[n];
+    }
+
     macierz = tablica;
     macierz[0][0] = 1.0 + 1.0i;
 
+    int i = 0;
+    int j = 0;
 
-    int i=0;
-    int j=0;
-    for(std::vector<std::complex<double>> row : matrix_list)
-    {
-        j=0;
-        for(std::complex<double> element : row)
-        {
+    for (std::vector<std::complex<double>> row : matrix_list) {
+        j = 0;
+        for (std::complex<double> element : row) {
             macierz[i][j] = element;
-            //cout<<" "<<element;
             j++;
         }
         i++;
-        //cout<<endl;
     }
 }
 
