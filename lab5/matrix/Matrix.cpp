@@ -206,3 +206,7 @@ int Matrix::getHeight() {
 int Matrix::getWidth() {
     return m;
 }
+
+pair<size_t, size_t> Matrix::Size() {
+    return pair<size_t, size_t>(n, m);
+}
