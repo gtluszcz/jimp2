@@ -27,6 +27,7 @@ namespace algebra {
         Matrix add(Matrix matrix);
         Matrix multiply(Matrix matrix);
         Matrix multiply(complex<double> number);
+        Matrix pow(int number);
         complex<double> ** getMatrix();
         int getWidth();
         int getHeight();
