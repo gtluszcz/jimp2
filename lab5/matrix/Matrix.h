@@ -24,6 +24,8 @@ namespace algebra {
         Matrix(std::string);
         Matrix(Matrix &ziemniak);
         Matrix add(Matrix matrix);
+        Matrix multiply(Matrix matrix);
+        Matrix multiply(complex<double> number);
         complex<double> ** getMatrix();
         int getWidth();
         int getHeight();

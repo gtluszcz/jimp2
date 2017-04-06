@@ -134,6 +134,37 @@ Matrix Matrix::add(Matrix matrix) {
     return result;
 }
 
+Matrix Matrix::multiply(Matrix matrix) {
+    if (n != matrix.getWidth()) {
+        throw "Cannot multiply matrices when the first matrix has different height than second has width!";
+    }
+
+    Matrix result(n, matrix.getWidth());
+
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < matrix.getWidth(); p++) {
+            result.getMatrix()[o][p] = 0;
+            for (int k = 0; k < matrix.getHeight(); k++) {
+                result.getMatrix()[o][p] += macierz[o][k] * matrix.getMatrix()[k][p];
+            }
+        }
+    }
+
+    return result;
+}
+
+Matrix Matrix::multiply(complex<double> number) {
+    Matrix result(n, m);
+
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < m; p++) {
+            result.getMatrix()[o][p] = macierz[o][p] * number;
+        }
+    }
+
+    return result;
+}
+
 complex<double> ** Matrix::getMatrix() {
     return macierz;
 }
