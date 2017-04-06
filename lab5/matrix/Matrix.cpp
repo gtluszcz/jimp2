@@ -210,3 +210,13 @@ int Matrix::getWidth() {
 pair<size_t, size_t> Matrix::Size() {
     return pair<size_t, size_t>(n, m);
 }
+
+Matrix Matrix::pow(int number) {
+    Matrix result = *this;
+
+    for (int i = 1; i < number; i++) {
+        result = result.multiply(*this);
+    }
+
+    return result;
+}

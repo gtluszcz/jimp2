@@ -43,5 +43,9 @@ int main() {
     Matrix m6("[1 4.4; 2 5; 3 6]");
     m5.multiply(m6).Print();
 
+    cout << endl << "Matrix 7 to the power of two is:" << endl;
+    Matrix m7("[1 2 3; 4 5 6; 7 8 9]");
+    m7.pow(2).Print();
+
     return 0;
 }
