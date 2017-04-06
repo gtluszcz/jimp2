@@ -13,11 +13,9 @@ Matrix::Matrix(int n, int m) {
     for (int i=0; i<n; ++i){
         macierz[i] = new complex<double>[m];
     }
-
 }
 
 Matrix::Matrix(Matrix &ziemniak) {
-
     n = ziemniak.n;
     m = ziemniak.m;
     macierz = new complex<double>*[n];
