@@ -4,6 +4,7 @@
 
 #include "Matrix.h"
 
+using algebra::Matrix;
 
 int main() {
     string str = "[13i65 2.0 3; 7 4 3]";

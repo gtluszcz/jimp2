@@ -5,6 +5,7 @@
 #include <complex>
 #include "Matrix.h"
 
+using algebra::Matrix;
 
 Matrix::Matrix(int n, int m) {
     this->n=n;

@@ -12,18 +12,20 @@
 
 using namespace std;
 
-class Matrix {
-    complex<double> ** macierz;
-    int n;
-    int m;
+namespace algebra {
+    class Matrix {
+        complex<double> ** macierz;
+        int n;
+        int m;
 
-public:
-    Matrix(int, int);
-    Matrix();
-    Matrix(std::string);
-    Matrix(Matrix &ziemniak);
-    void Print();
-    ~Matrix();
-};
+    public:
+        Matrix(int, int);
+        Matrix();
+        Matrix(std::string);
+        Matrix(Matrix &ziemniak);
+        void Print();
+        ~Matrix();
+    };
+}
 
 #endif //JIMP_EXERCISES_MATRIX_H
