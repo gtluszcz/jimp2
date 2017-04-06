@@ -3,7 +3,12 @@
 //
 
 #include "Matrix.h"
+#include <iostream>
+#include <string>
 
+using std::cout;
+using std::endl;
+using std::string;
 using algebra::Matrix;
 
 int main() {
@@ -13,6 +18,7 @@ int main() {
     Matrix m2(m1);
 
     m1.Print();
+    cout << endl;
     m2.Print();
     
     return 0;
