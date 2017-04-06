@@ -4,28 +4,34 @@
 
 #ifndef JIMP_EXERCISES_MATRIX_H
 #define JIMP_EXERCISES_MATRIX_H
+
 #include <cstdlib>
 #include <string>
 #include <iostream>
 #include <complex>
 
-
-
 using namespace std;
 
-class Matrix {
-    complex<double> **macierz;
-    int n,m;
+namespace algebra {
+    class Matrix {
+        complex<double> ** macierz;
+        int n;
+        int m;
 
-public:
-    Matrix (int, int);
-    Matrix ();
-    Matrix (std::string);
-    Matrix(Matrix &ziemniak);
-    void Print();
-    ~Matrix();
-
-};
-
+    public:
+        Matrix(int, int);
+        Matrix();
+        Matrix(std::string);
+        Matrix(Matrix &ziemniak);
+        Matrix add(Matrix matrix);
+        Matrix multiply(Matrix matrix);
+        Matrix multiply(complex<double> number);
+        complex<double> ** getMatrix();
+        int getWidth();
+        int getHeight();
+        void Print();
+        ~Matrix();
+    };
+}
 
 #endif //JIMP_EXERCISES_MATRIX_H
