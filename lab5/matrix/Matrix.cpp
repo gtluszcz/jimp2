@@ -112,31 +112,42 @@ string Matrix::Print() {
         for(int p=0;p<m;p++){
             string data= to_string(macierz[o][p].real());
             for(int j=0;j<data.length();j++){
-                        bool slice = true;
-                        for (int k=data.length()-1;k>=j;k-=1){
-                            if (data[k]!='0'){slice=false;}
-                        }
-                        if (slice){
-                            data = data.substr(0,j);
-                            break;
-                        }
-                    }
-            if (data[data.length()-1] == '.'){data = data.substr(0,data.length()-1);}
+                bool slice = true;
+                for (int k=data.length()-1;k>=j;k-=1){
+                    if (data[k]!='0'){slice=false;}
+                }
+                if (slice){
+                    data = data.substr(0,j);
+                    break;
+                }
+            }
+
+            if (data[data.length()-1] == '.'){
+                data = data.substr(0,data.length()-1);
+            }
+
             liczba += data;
+
             if (macierz[o][p].imag()!=0) {
-                   string data2= to_string(macierz[o][p].imag());
-                   for(int j=0;j<data2.length();j++){
-                               bool slice = true;
-                               for (int k=data2.length()-1;k>=j;k-=1){
-                                   if (data2[k]!='0'){slice=false;}
-                               }
-                               if (slice){
-                                   data2 = data2.substr(0,j);
-                                   break;
-                               }
-                           }
-                   if (data2[data2.length()-1] == '.'){data2 = data2.substr(0,data2.length()-1);}
-                   liczba += "i"+data2;
+               string data2= to_string(macierz[o][p].imag());
+               for(int j=0;j<data2.length();j++){
+                   bool slice = true;
+                   for (int k=data2.length()-1;k>=j;k-=1){
+                       if (data2[k]!='0'){
+                           slice=false;
+                       }
+                   }
+                   if (slice){
+                       data2 = data2.substr(0,j);
+                       break;
+                   }
+               }
+               if (data2[data2.length()-1] == '.'){
+                   data2 = data2.substr(0,data2.length()-1);
+               }
+               liczba += "i"+data2;
+            } else {
+                liczba += "i0";
             }
             liczba += ", ";
         }
