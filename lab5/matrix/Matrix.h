@@ -32,7 +32,7 @@ namespace algebra {
         complex<double> ** getMatrix();
         int getWidth();
         int getHeight();
-        void Print();
+        std::string Print();
         ~Matrix();
     };
 }

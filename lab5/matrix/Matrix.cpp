@@ -105,7 +105,7 @@ Matrix::Matrix(std::string matlabowe_cos) {
 
 }
 
-void Matrix::Print() {
+string Matrix::Print() {
     string liczba;
     liczba+="[";
     for(int o=0;o<n;o++){
@@ -145,7 +145,7 @@ void Matrix::Print() {
     }
     liczba=liczba.substr(0,liczba.length()-2);
     liczba+="]";
-    cout<<liczba;
+    return liczba;
 }
 
 Matrix Matrix::Add(Matrix matrix) {
