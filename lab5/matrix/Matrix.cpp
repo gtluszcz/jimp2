@@ -107,11 +107,44 @@ Matrix::Matrix(std::string matlabowe_cos) {
 }
 
 void Matrix::Print() {
+    string liczba;
+    liczba+="[";
     for(int o=0;o<n;o++){
         for(int p=0;p<m;p++){
-            cout << macierz[o][p];
+            string data= to_string(macierz[o][p].real());
+            for(int j=0;j<data.length();j++){
+                        bool slice = true;
+                        for (int k=data.length()-1;k>=j;k-=1){
+                            if (data[k]!='0'){slice=false;}
+                        }
+                        if (slice){
+                            data = data.substr(0,j);
+                            break;
+                        }
+                    }
+            if (data[data.length()-1] == '.'){data = data.substr(0,data.length()-1);}
+            liczba += data;
+            if (macierz[o][p].imag()!=0) {
+                   string data2= to_string(macierz[o][p].imag());
+                   for(int j=0;j<data2.length();j++){
+                               bool slice = true;
+                               for (int k=data2.length()-1;k>=j;k-=1){
+                                   if (data2[k]!='0'){slice=false;}
+                               }
+                               if (slice){
+                                   data2 = data2.substr(0,j);
+                                   break;
+                               }
+                           }
+                   if (data2[data2.length()-1] == '.'){data2 = data2.substr(0,data2.length()-1);}
+                   liczba += "i"+data2;
+            }
+            liczba += " ";
         }
-        cout<<endl;
+        liczba=liczba.substr(0,liczba.length()-1);
+        liczba+="; ";
     }
-
+    liczba=liczba.substr(0,liczba.length()-2);
+    liczba+="]";
+    cout<<liczba;
 }
