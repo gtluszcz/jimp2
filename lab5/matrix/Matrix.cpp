@@ -148,6 +148,30 @@ void Matrix::Print() {
     cout<<liczba;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Matrix Matrix::add(Matrix matrix) {
     if (m != matrix.getWidth() || n != matrix.getHeight()) {
         throw "Cannot add matrices of different sizes!";
@@ -209,4 +233,41 @@ int Matrix::getWidth() {
 
 pair<size_t, size_t> Matrix::Size() {
     return pair<size_t, size_t>(n, m);
+}
+Matrix::Matrix(std::initializer_list<std::vector<std::complex<double>>> matrix_list) {
+
+    int num_row = int(matrix_list.size());
+    unsigned long num_col =0;
+    for(auto row : matrix_list)                    // ogarnianie rozmiaru arraya
+    {
+        num_col = row.size();
+        break;
+    }
+
+    n = int(num_col);                          // USUNALEM NEW_MATRIX!!!!
+    m = num_row;
+
+    std::complex<double> **tablica = new std::complex<double>  *[m]; //alokacja pamieci na array
+    for (int i=0; i< m; i++)
+        tablica[i]=new std::complex<double>  [n];
+    macierz = tablica;
+    macierz[0][0] = 1.0 + 1.0i;
+
+
+    int i=0;
+    int j=0;
+    for(std::vector<std::complex<double>> row : matrix_list)
+    {
+        j=0;
+        for(std::complex<double> element : row)
+        {
+            macierz[i][j] = element;
+            //cout<<" "<<element;
+            j++;
+        }
+        i++;
+        //cout<<endl;
+    }
+
+
 }

@@ -9,6 +9,7 @@
 #include <string>
 #include <iostream>
 #include <complex>
+#include <vector>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ namespace algebra {
     public:
         Matrix(int, int);
         Matrix();
+        Matrix(std::initializer_list<std::vector<std::complex<double>>> matrix_list);
         Matrix(std::string);
         Matrix(Matrix &ziemniak);
         pair<size_t, size_t> Size();
