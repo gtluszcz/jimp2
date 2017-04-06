@@ -220,3 +220,19 @@ Matrix Matrix::pow(int number) {
 
     return result;
 }
+
+Matrix Matrix::Sub(Matrix matrix) {
+    if (m != matrix.getWidth() || n != matrix.getHeight()) {
+        throw "Cannot add matrices of different sizes!";
+    }
+
+    Matrix result(matrix.getHeight(), matrix.getWidth());
+
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < m; p++) {
+            result.getMatrix()[o][p] = macierz[o][p] - matrix.getMatrix()[o][p];
+        }
+    }
+
+    return result;
+}

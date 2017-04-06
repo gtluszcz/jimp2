@@ -25,6 +25,7 @@ namespace algebra {
         Matrix(Matrix &ziemniak);
         pair<size_t, size_t> Size();
         Matrix add(Matrix matrix);
+        Matrix Sub(Matrix matrix);
         Matrix multiply(Matrix matrix);
         Matrix multiply(complex<double> number);
         Matrix pow(int number);
