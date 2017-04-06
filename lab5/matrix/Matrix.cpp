@@ -138,9 +138,9 @@ void Matrix::Print() {
                    if (data2[data2.length()-1] == '.'){data2 = data2.substr(0,data2.length()-1);}
                    liczba += "i"+data2;
             }
-            liczba += " ";
+            liczba += ", ";
         }
-        liczba=liczba.substr(0,liczba.length()-1);
+        liczba=liczba.substr(0,liczba.length()-2);
         liczba+="; ";
     }
     liczba=liczba.substr(0,liczba.length()-2);
