@@ -119,14 +119,14 @@ void Matrix::Print() {
 }
 
 Matrix Matrix::add(Matrix matrix) {
-    if (n != matrix.getWidth() || m != matrix.getHeight()) {
+    if (m != matrix.getWidth() || n != matrix.getHeight()) {
         throw "Cannot add matrices of different sizes!";
     }
 
-    Matrix result(matrix.getWidth(), matrix.getHeight());
+    Matrix result(matrix.getHeight(), matrix.getWidth());
 
-    for(int o=0;o<n;o++){
-        for(int p=0;p<m;p++){
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < m; p++) {
             result.getMatrix()[o][p] = macierz[o][p] + matrix.getMatrix()[o][p];
         }
     }
@@ -139,9 +139,9 @@ complex<double> ** Matrix::getMatrix() {
 }
 
 int Matrix::getHeight() {
-    return m;
+    return n;
 }
 
 int Matrix::getWidth() {
-    return n;
+    return m;
 }
