@@ -10,7 +10,7 @@ using std::endl;
 using algebra::Matrix;
 
 int main() {
-    Matrix m1("[13i65 2.0 3; 7 4 3]");
+    Matrix m1("[13i65 2.5i4.3 3; 7 4 3]");
     Matrix m2(m1);
 
     cout << "Matrix one is:" << endl;
