@@ -24,15 +24,17 @@ namespace algebra {
         Matrix();
         Matrix(std::initializer_list<std::vector<std::complex<double>>> matrix_list);
         Matrix(std::string);
-        Matrix(Matrix &ziemniak);
+        Matrix(Matrix &matrix);
         pair<size_t, size_t> Size();
-        Matrix add(Matrix matrix);
-        Matrix multiply(Matrix matrix);
-        Matrix multiply(complex<double> number);
+        Matrix Add(Matrix matrix);
+        Matrix Sub(Matrix matrix);
+        Matrix Mul(Matrix matrix);
+        Matrix Mul(complex<double> number);
+        Matrix Pow(int number);
         complex<double> ** getMatrix();
         int getWidth();
         int getHeight();
-        void Print();
+        std::string Print();
         ~Matrix();
     };
 }

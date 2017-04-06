@@ -16,15 +16,15 @@ Matrix::Matrix(int n, int m) {
     }
 }
 
-Matrix::Matrix(Matrix &ziemniak) {
-    n = ziemniak.n;
-    m = ziemniak.m;
+Matrix::Matrix(Matrix &matrix) {
+    n = matrix.n;
+    m = matrix.m;
     macierz = new complex<double>*[n];
     for (int i=0; i<n; ++i){
         macierz[i] = new complex<double>[m];
         for(int x=0;x<m;x++)
         {
-            macierz[i][x]=ziemniak.macierz[i][x];
+            macierz[i][x]=matrix.macierz[i][x];
         }
     }
 }
@@ -105,7 +105,7 @@ Matrix::Matrix(std::string matlabowe_cos) {
 
 }
 
-void Matrix::Print() {
+string Matrix::Print() {
     string liczba;
     liczba+="[";
     for(int o=0;o<n;o++){
@@ -145,34 +145,10 @@ void Matrix::Print() {
     }
     liczba=liczba.substr(0,liczba.length()-2);
     liczba+="]";
-    cout<<liczba;
+    return liczba;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Matrix Matrix::add(Matrix matrix) {
+Matrix Matrix::Add(Matrix matrix) {
     if (m != matrix.getWidth() || n != matrix.getHeight()) {
         throw "Cannot add matrices of different sizes!";
     }
@@ -188,7 +164,7 @@ Matrix Matrix::add(Matrix matrix) {
     return result;
 }
 
-Matrix Matrix::multiply(Matrix matrix) {
+Matrix Matrix::Mul(Matrix matrix) {
     if (n != matrix.getWidth()) {
         throw "Cannot multiply matrices when the first matrix has different height than second has width!";
     }
@@ -207,7 +183,7 @@ Matrix Matrix::multiply(Matrix matrix) {
     return result;
 }
 
-Matrix Matrix::multiply(complex<double> number) {
+Matrix Matrix::Mul(complex<double> number) {
     Matrix result(n, m);
 
     for (int o = 0; o < n; o++) {
@@ -234,6 +210,7 @@ int Matrix::getWidth() {
 pair<size_t, size_t> Matrix::Size() {
     return pair<size_t, size_t>(n, m);
 }
+
 Matrix::Matrix(std::initializer_list<std::vector<std::complex<double>>> matrix_list) {
 
     int num_row = int(matrix_list.size());
@@ -268,6 +245,30 @@ Matrix::Matrix(std::initializer_list<std::vector<std::complex<double>>> matrix_l
         i++;
         //cout<<endl;
     }
+}
 
+Matrix Matrix::Pow(int number) {
+    Matrix result = *this;
 
+    for (int i = 1; i < number; i++) {
+        result = result.Mul(*this);
+    }
+
+    return result;
+}
+
+Matrix Matrix::Sub(Matrix matrix) {
+    if (m != matrix.getWidth() || n != matrix.getHeight()) {
+        throw "Cannot add matrices of different sizes!";
+    }
+
+    Matrix result(matrix.getHeight(), matrix.getWidth());
+
+    for (int o = 0; o < n; o++) {
+        for (int p = 0; p < m; p++) {
+            result.getMatrix()[o][p] = macierz[o][p] - matrix.getMatrix()[o][p];
+        }
+    }
+
+    return result;
 }
