@@ -18,20 +18,20 @@ int main() {
     cout << endl << "Matrix two (same as one) is:" << endl;
     m2.Print();
     cout << endl << "Matrix that is a result of adding two same matrices (one and two) is:" << endl;
-    m1.add(m2).Print();
+    m1.Add(m2).Print();
 
     Matrix m3("[1 2 3; 4 5 6]");
     cout << endl << "Matrix three is:" << endl;
     m3.Print();
     cout << endl << "Matrix that is a result of adding two different matrices (one and three) is:" << endl;
-    m3.add(m1).Print();
+    m3.Add(m1).Print();
     cout << endl << "The same result should give:" << endl;
-    m1.add(m3).Print();
+    m1.Add(m3).Print();
 
     cout << endl << "The following line should read \"Exception caught!\":" << endl;
     try {
         Matrix m4("[1 2; 5 6]");
-        m4.add(m1);
+        m4.Add(m1);
     } catch (...) {
         cout << "Exception caught!" << endl;
     }

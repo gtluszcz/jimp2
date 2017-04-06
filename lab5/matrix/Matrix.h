@@ -24,7 +24,7 @@ namespace algebra {
         Matrix(std::string);
         Matrix(Matrix &ziemniak);
         pair<size_t, size_t> Size();
-        Matrix add(Matrix matrix);
+        Matrix Add(Matrix matrix);
         Matrix Sub(Matrix matrix);
         Matrix multiply(Matrix matrix);
         Matrix multiply(complex<double> number);

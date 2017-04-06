@@ -148,7 +148,7 @@ void Matrix::Print() {
     cout<<liczba;
 }
 
-Matrix Matrix::add(Matrix matrix) {
+Matrix Matrix::Add(Matrix matrix) {
     if (m != matrix.getWidth() || n != matrix.getHeight()) {
         throw "Cannot add matrices of different sizes!";
     }
