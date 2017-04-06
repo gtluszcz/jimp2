@@ -33,8 +33,15 @@ int main() {
         Matrix m4("[1 2; 5 6]");
         m4.add(m1);
     } catch (...) {
-        cout << "Exception caught!";
+        cout << "Exception caught!" << endl;
     }
+
+    cout << endl << "Multiplication of matrix by number:" << endl;
+    m1.multiply(complex<double>(3, 7)).Print();
+    cout << endl << "Multiplication of matrix by matrix:" << endl;
+    Matrix m5("[1 2 3; 3 4 5]");
+    Matrix m6("[1 4; 2 5; 3 6]");
+    m5.multiply(m6).Print();
 
     return 0;
 }
