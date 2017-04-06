@@ -11,6 +11,7 @@ int main() {
     Matrix m1(str);
     Matrix m2(m1);
 
+    m1.Print();
     m2.Print();
     
     return 0;

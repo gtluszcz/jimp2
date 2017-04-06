@@ -111,9 +111,8 @@ Matrix::Matrix(std::string matlabowe_cos) {
 void Matrix::Print() {
     for(int o=0;o<n;o++){
         for(int p=0;p<m;p++){
-            cout << macierz[o][p];
+            cout << macierz[o][p] << " ";
         }
         cout<<endl;
     }
-
 }
