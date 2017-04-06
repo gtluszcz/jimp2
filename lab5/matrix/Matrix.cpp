@@ -64,10 +64,8 @@ Matrix::Matrix(std::string matlabowe_cos) {
         }
         else if (*it == ' ' || *it == ']') {
             if (liczba.find("i") != string::npos) {
-                for (int k = 0; k != liczba.find("i"); k++) {
-                    liczba_re += liczba[k];
-                    liczba_im += liczba[liczba.length() - k -1];
-                }
+                liczba_re = liczba.substr(0, liczba.find("i"));
+                liczba_im = liczba.substr(liczba.find("i")+1, liczba.length()-liczba.find("i"));
                 liczba_re_double = stod(liczba_re, &sz);
                 liczba_im_double = stod(liczba_im, &sz);
                 macierz[i][j] = complex<double>(liczba_re_double, liczba_im_double);
@@ -84,10 +82,8 @@ Matrix::Matrix(std::string matlabowe_cos) {
         }
         else if (*it == 59) {
             if (liczba.find("i") != string::npos) {
-                for (int k = 0; k != liczba.find("i"); k++) {
-                    liczba_re += liczba[k];
-                    liczba_im += liczba[liczba.length() - k];
-                }
+                liczba_re = liczba.substr(0, liczba.find("i"));
+                liczba_im = liczba.substr(liczba.find("i")+1, liczba.length()-liczba.find("i"));
                 liczba_re_double = stod(liczba_re, &sz);
                 liczba_im_double = stod(liczba_im, &sz);
                 macierz[i][j] = complex<double>(liczba_re_double, liczba_im_double);
