@@ -19,14 +19,14 @@ public:
     Point(double x, double y);
     ~Point();
 
-    void toString(ostream * out) const;
-    double distance(const Point &other) const;
+    void ToString(ostream *out) const;
+    double Distance(const Point &other) const;
 
-    double getX() const;
-    double getY() const;
+    double GetX() const;
+    double GetY() const;
 
-    void setX(double x);
-    void setY(double y);
+    void SetX(double x);
+    void SetY(double y);
 };
 
 #endif //JIMP_EXERCISES_POINT_H

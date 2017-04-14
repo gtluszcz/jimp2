@@ -27,27 +27,27 @@ Point::~Point() {
     cout << endl;
 }
 
-double Point::distance(const Point &other) const {
-    return sqrt(pow(getX() - other.getX(), 2) + pow(getY() - other.getY(), 2));
+double Point::Distance(const Point &other) const {
+    return sqrt(pow(GetX() - other.GetX(), 2) + pow(GetY() - other.GetY(), 2));
 }
 
-void Point::toString(ostream * out) const {
-    (*out) << "(" << getX() << ";" << getY() << ")";
+void Point::ToString(ostream *out) const {
+    (*out) << "(" << GetX() << ";" << GetY() << ")";
 }
 
-double Point::getX() const {
+double Point::GetX() const {
     return x_;
 }
 
-double Point::getY() const {
+double Point::GetY() const {
     return y_;
 }
 
-void Point::setX(double x) {
+void Point::SetX(double x) {
     x_ = x;
 }
 
-void Point::setY(double y) {
+void Point::SetY(double y) {
     y_ = y;
 }
 

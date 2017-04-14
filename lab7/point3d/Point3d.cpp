@@ -20,15 +20,15 @@ Point3d::~Point3d() {
     cout << endl;
 }
 
-double Point3d::distance(const Point3d &other) const {
-    return sqrt(pow(getX() - other.getX(), 2) + pow(getY() - other.getY(), 2) + pow(getZ() - other.getZ(), 2));
+double Point3d::Distance(const Point3d &other) const {
+    return sqrt(pow(GetX() - other.GetX(), 2) + pow(GetY() - other.GetY(), 2) + pow(GetZ() - other.GetZ(), 2));
 }
 
-double Point3d::getZ() const {
+double Point3d::GetZ() const {
     return z_;
 }
 
-void Point3d::setZ(double z) {
+void Point3d::SetZ(double z) {
     z_ = z;
 }
 

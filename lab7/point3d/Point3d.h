@@ -15,9 +15,9 @@ public:
     Point3d();
     Point3d(double x, double y, double z);
     ~Point3d();
-    double distance(const Point3d &other) const;
-    double getZ() const;
-    void setZ(double z);
+    double Distance(const Point3d &other) const;
+    double GetZ() const;
+    void SetZ(double z);
 };
 
 
