@@ -1,4 +1,3 @@
-
 project(figures)
 
 set(HEDEAR_FILES Figures.h)
