@@ -5,7 +5,6 @@
 
 class Square : public Figure {
 public:
-    Square();
     string draw();
 };
 

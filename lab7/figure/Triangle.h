@@ -5,7 +5,6 @@
 
 class Triangle : public Figure {
 public:
-    Triangle();
     string draw();
 };
 

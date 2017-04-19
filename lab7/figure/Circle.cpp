@@ -3,10 +3,6 @@
 
 using ::std::cout;
 
-Circle::Circle() {
-
-}
-
 string Circle::draw() {
     cout << "<>";
 }

@@ -3,10 +3,6 @@
 
 using ::std::cout;
 
-Triangle::Triangle() {
-
-}
-
 string Triangle::draw() {
     cout << "^";
 }

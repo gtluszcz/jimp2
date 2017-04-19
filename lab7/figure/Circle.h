@@ -5,7 +5,6 @@
 
 class Circle : public Figure {
 public:
-    Circle();
     string draw();
 };
 
