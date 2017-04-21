@@ -1,6 +1,6 @@
-//
-// Created by Dariusz Czajkowski on 14/04/2017.
-//
+/**
+ * Exercise 8
+ */
 
 #ifndef JIMP_EXERCISES_FIGURES_H
 #define JIMP_EXERCISES_FIGURES_H
