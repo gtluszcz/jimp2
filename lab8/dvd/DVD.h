@@ -17,5 +17,4 @@ private:
     void static writeToFile(const string output_file, vector<string> lines);
 };
 
-
 #endif //JIMP_EXERCISES_DVD_H
