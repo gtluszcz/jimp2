@@ -22,7 +22,6 @@ void DVD::delay(const string input_file, const string output_file, int delay, in
     }
 
     writeToFile(output_file, lines);
-
 }
 
 void DVD::writeToFile(const string output_file, vector<string> lines) {
