@@ -5,6 +5,7 @@
 #include <fstream>
 #include <regex>
 #include <sstream>
+#include <cmath>
 
 using std::vector;
 using std::string;
@@ -69,7 +70,7 @@ string DVD::delayLine(const string line, int delay, int frame_rate) {
     ssline.ignore(1, '}');
     getline(ssline, text);
 
-    const int c = frame_rate * (delay / 1000);
+    const int c = (int) floor(frame_rate * ((double) delay / 1000));
 
     return "{" + to_string(start + c) + "}{" + to_string(end + c) + "}" + text;
 }
