@@ -26,7 +26,7 @@ void DVD::delay(const string input_file, const string output_file, int delay, in
 
 void DVD::writeToFile(const string output_file, vector<string> lines) {
     std::ofstream file;
-    file.open(output_file, std::ios_base::app);
+    file.open(output_file, std::ofstream::out | std::ofstream::trunc);
 
     if (file.fail()) {
         throw NoFileException("No output file in given path. Remember to provide a full path to the file.");
