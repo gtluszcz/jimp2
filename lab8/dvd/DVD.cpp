@@ -36,20 +36,24 @@ void DVD::writeToFile(const string output_file, vector<string> lines) {
     for (auto & line : lines) {
         file << line << "\n";
     }
+
+    file.close();
 }
 
 vector<string> DVD::readLines(const string input_file) {
     string line;
     vector<string> lines;
-    ifstream input(input_file);
+    ifstream file(input_file);
 
-    if (! input) {
+    if (file.fail()) {
         throw NoFileException("No input file in given path. Remember to provide a full path to the file.");
     }
 
-    while (getline(input, line)) {
+    while (getline(file, line)) {
         lines.push_back(line);
     }
+
+    file.close();
 
     return lines;
 }
