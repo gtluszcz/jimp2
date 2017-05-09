@@ -1,7 +1,6 @@
 #include "Backpack.h"
 #include <iostream>
 
-
 Backpack::Backpack(int volume) {
     this->maxvolume_ = volume;
 }
