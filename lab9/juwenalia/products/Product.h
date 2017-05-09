@@ -3,7 +3,12 @@
 
 
 class Product {
-    Product();
+    string name_;
+    int volume_;
+    int alcohol_ = 0;
+
+public:
+    Product(string name, int volume);
 };
 
 

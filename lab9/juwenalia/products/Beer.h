@@ -1,9 +1,9 @@
 #ifndef JIMP_EXERCISES_BEER_H
 #define JIMP_EXERCISES_BEER_H
 
-#include "Product.h"
+#include "AlcoholProduct.h"
 
-class Beer : public Product {
+class Beer : public AlcoholProduct {
 
 };
 

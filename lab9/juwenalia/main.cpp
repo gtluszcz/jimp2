@@ -6,15 +6,15 @@
 #include "Student.h"
 
 int main() {
-    Vodka vodka1;
-    Vodka vodka2;
-    Vodka vodka3;
-    Beer beer1;
-    Beer beer2;
-    Beer beer3;
-    Water water1;
-    Water water2;
-    Water water3;
+    Vodka vodka1("name", 500, 0.40);
+    Vodka vodka2("name", 500, 0.40);
+    Vodka vodka3("name", 500, 0.40);
+    Beer beer1("name", 500, 0.04);
+    Beer beer2("name", 500, 0.04);
+    Beer beer3("name", 500, 0.04);
+    Water water1("name", 500, 0.0);
+    Water water2("name", 500, 0.0);
+    Water water3("name", 500, 0.0);
 
     Store store;
     store.addProduct(water3);
