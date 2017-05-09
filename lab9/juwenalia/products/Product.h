@@ -3,7 +3,7 @@
 
 
 class Product {
-
+    Product();
 };
 
 

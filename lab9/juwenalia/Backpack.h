@@ -2,7 +2,7 @@
 #define JIMP_EXERCISES_BACKPACK_H
 
 
-class Backpack : public Product {
+class Backpack {
 
 };
 
