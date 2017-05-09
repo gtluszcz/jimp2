@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Backpack  {
+class Backpack {
 public:
     int volume_ = 10;
     int maxvolume_;
@@ -15,6 +15,5 @@ public:
     void addProduct(Product name);
     void showBackpack();
 };
-
 
 #endif //JIMP_EXERCISES_BACKPACK_H

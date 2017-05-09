@@ -1,7 +1,6 @@
 #ifndef JIMP_EXERCISES_PRODUCT_H
 #define JIMP_EXERCISES_PRODUCT_H
 
-
 class Product {
     string name_;
     int volume_;

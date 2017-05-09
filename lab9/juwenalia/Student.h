@@ -5,8 +5,8 @@
 
 class Student {
 public:
-    Backpack *backpack_;
-    Student(Backpack *name);
+    Backpack * backpack_;
+    Student(Backpack * name);
     void grabproduct(Product name);
 };
 

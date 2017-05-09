@@ -7,5 +7,4 @@ class Vodka : public AlcoholProduct {
 
 };
 
-
 #endif //JIMP_EXERCISES_VODKA_H
