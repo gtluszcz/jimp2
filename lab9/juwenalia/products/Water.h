@@ -4,6 +4,7 @@
 #include "Product.h"
 
 class Water : public Product {
+public:
 
 };
 
