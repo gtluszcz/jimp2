@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "products/Product.h"
+
 using namespace std;
 
 class Backpack  {
@@ -13,7 +14,6 @@ public:
     Backpack(int volume);
     void addProduct(Product name);
     void showBackpack();
-
 };
 
 
