@@ -4,7 +4,7 @@
 
 #ifndef EXCERCISES_ALGO_H
 #define EXCERCISES_ALGO_H
-namespace: algo{
+namespace algo {
     class Algo{
     public:
         std::set<std::string> Keys(const std::map<std::string, int> &m);
