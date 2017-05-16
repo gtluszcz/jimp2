@@ -4,8 +4,13 @@
 
 #ifndef EXCERCISES_ALGO_H
 #define EXCERCISES_ALGO_H
+
+#include <string>
+#include <map>
+#include <set>
+
 namespace algo {
-    class Algo{
+    class Algo {
     public:
         std::set<std::string> Keys(const std::map<std::string, int> &m);
         std::vector<int> Values(const std::map<std::string, int> &m);
@@ -30,4 +35,5 @@ namespace algo {
         int HowManyShortStrings(const std::vector<std::string> &v, int inclusive_short_length);
     };
 }
+
 #endif //EXCERCISES_ALGO_H
