@@ -8,10 +8,9 @@
 #include <string>
 #include <map>
 #include <set>
+#include <vector>
 
 namespace algo {
-    class Algo {
-    public:
         std::set<std::string> Keys(const std::map<std::string, int> &m);
         std::vector<int> Values(const std::map<std::string, int> &m);
         std::map<std::string, int> DivisableBy(const std::map<std::string, int> &m,int divisor);
@@ -33,7 +32,6 @@ namespace algo {
         std::vector<int> InitializedVectorOfLength(int length, int initial_value);
         void CopyInto(const std::vector<int> &v, int n_elements, std::vector<int> *out);
         int HowManyShortStrings(const std::vector<std::string> &v, int inclusive_short_length);
-    };
 }
 
 #endif //EXCERCISES_ALGO_H
