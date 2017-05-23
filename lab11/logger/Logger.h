@@ -1,15 +1,19 @@
 #ifndef JIMP_EXERCISES_LOGGER_H
 #define JIMP_EXERCISES_LOGGER_H
 
-namespace Logger {
-    class Logger {
-        template<class T>
-        Logger(T output);
+#include <string>
 
-        void debug();
-        void info();
-        void warning();
-        void error();
+namespace logger {
+    template<class T>
+    class Logger {
+        T * output_;
+    public:
+        Logger(T * output);
+
+        void debug(const char * text);
+        void info(const char * text);
+        void warning(const char * text);
+        void error(const char * text);
     };
 }
 
