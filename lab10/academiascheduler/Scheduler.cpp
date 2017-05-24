@@ -1,7 +1,20 @@
 #include "Scheduler.h"
 
+using academia::SchedulingItem;
 using academia::Schedule;
 using academia::Scheduler;
+
+/**
+ * SchedulingItem
+ */
+
+SchedulingItem::SchedulingItem(int course_id, int teacher_id, int room_id, int time_slot, int year) : course_id(course_id), teacher_id(teacher_id), room_id(room_id), time_slot(time_slot), year(year) {
+    //
+}
+
+/**
+ * Schedule
+ */
 
 Schedule Schedule::OfTeacher(int teacher_id) const {
     //
@@ -27,6 +40,10 @@ size_t Schedule::Size() const {
     //
 }
 
+/**
+ * Scheduler
+ */
+
 Schedule Scheduler::PrepareNewSchedule(
     const vector<int> &rooms,
     const map<int, vector<int>> &teacher_courses_assignment,
@@ -35,3 +52,18 @@ Schedule Scheduler::PrepareNewSchedule(
 ) {
     //
 }
+
+/**
+ * Getters
+ */
+
+int SchedulingItem::CourseId() { return course_id; }
+int SchedulingItem::TeacherId() { return teacher_id; }
+int SchedulingItem::RoomId() { return room_id; }
+int SchedulingItem::TimeSlot() { return time_slot; }
+int SchedulingItem::Year() { return year; }
+
+int Scheduler::Rooms() { return rooms; }
+int Scheduler::TeacherCoursesAssignment() { return teacher_courses_assignment; }
+int Scheduler::CoursesOfYear() { return courses_of_year; }
+int Scheduler::NTimeSlots() { return n_time_slots; }

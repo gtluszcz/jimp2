@@ -12,6 +12,14 @@ using std::set;
 namespace academia {
     class SchedulingItem {
     public:
+        SchedulingItem(int course_id, int teacher_id, int room_id, int time_slot, int year);
+        int CourseId();
+        int TeacherId();
+        int RoomId();
+        int TimeSlot();
+        int Year();
+
+    private:
         int course_id; // identyfikator kursu
         int teacher_id; // identyfikator nauczyciela akademickiego prowadzącego te zajęcia o tej godzinie
         int room_id; // identyfikator pomieszczenia w którym odbywają się zajęcia
@@ -38,6 +46,12 @@ namespace academia {
             int n_time_slots
         );
 
+        int Rooms();
+        int TeacherCoursesAssignment();
+        int CoursesOfYear();
+        int NTimeSlots();
+
+    private:
         int rooms; // dostępne pomieszczenia
         int teacher_courses_assignment; // rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
         int courses_of_year; // kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
