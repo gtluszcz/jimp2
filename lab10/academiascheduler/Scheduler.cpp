@@ -37,7 +37,7 @@ void Schedule::InsertScheduleItem(const SchedulingItem &item) {
 }
 
 size_t Schedule::Size() const {
-    //
+    return schedule_items.size();
 }
 
 /**
