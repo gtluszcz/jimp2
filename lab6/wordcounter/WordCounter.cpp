@@ -62,6 +62,7 @@ int WordCounter::operator[](std::string name){
 
 void WordCounter::FromInputStream(std::ifstream &is){
 
+
 }
 bool compare(std::pair<Word,Counts> &lhs, std::pair<Word,Counts> &rhs){
     if (lhs.second.GetCounts()>rhs.second.GetCounts()){ return true;}
