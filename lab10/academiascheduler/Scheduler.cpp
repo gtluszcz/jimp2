@@ -63,7 +63,7 @@ int SchedulingItem::RoomId() { return room_id; }
 int SchedulingItem::TimeSlot() { return time_slot; }
 int SchedulingItem::Year() { return year; }
 
-int Scheduler::Rooms() { return rooms; }
-int Scheduler::TeacherCoursesAssignment() { return teacher_courses_assignment; }
-int Scheduler::CoursesOfYear() { return courses_of_year; }
+const vector<int> Scheduler::Rooms() { return rooms; }
+const map<int, vector<int>> Scheduler::TeacherCoursesAssignment() { return teacher_courses_assignment; }
+const map<int, set<int>> Scheduler::CoursesOfYear() { return courses_of_year; }
 int Scheduler::NTimeSlots() { return n_time_slots; }

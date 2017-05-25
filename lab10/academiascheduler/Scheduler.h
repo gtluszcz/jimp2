@@ -46,15 +46,15 @@ namespace academia {
             int n_time_slots
         );
 
-        int Rooms();
-        int TeacherCoursesAssignment();
-        int CoursesOfYear();
+        const vector<int> Rooms();
+        const map<int, vector<int>> TeacherCoursesAssignment();
+        const map<int, set<int>> CoursesOfYear();
         int NTimeSlots();
 
     private:
-        int rooms; // dostępne pomieszczenia
-        int teacher_courses_assignment; // rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
-        int courses_of_year; // kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
+        const vector<int> rooms; // dostępne pomieszczenia
+        const map<int, vector<int>> teacher_courses_assignment; // rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
+        const map<int, set<int>> courses_of_year; // kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
         int n_time_slots; // ilość slotów czasowych
     };
 
