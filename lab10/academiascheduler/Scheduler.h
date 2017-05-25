@@ -18,11 +18,14 @@ namespace academia {
         const int RoomId() const;
         const int TimeSlot() const;
         const int Year() const;
+        void SetRoomId(int room_id);
+        void SetTimeSlot(int time_slot);
 
+    private:
         int course_id;
-        int teacher_id;
         int room_id;
         int time_slot;
+        int teacher_id;
         int year;
     };
 
@@ -36,6 +39,7 @@ namespace academia {
         size_t Size() const;
         const SchedulingItem & operator[](int id) const;
 
+    private:
         vector<const SchedulingItem *> schedule_items;
     };
 

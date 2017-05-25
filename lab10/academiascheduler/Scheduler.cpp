@@ -124,8 +124,8 @@ Schedule academia::GreedyScheduler::PrepareNewSchedule(
     for (auto room : rooms) {
         for (int time_slot = 1; time_slot <= n_time_slots; time_slot++){
             if (i < scheduling_items.size()) {
-                scheduling_items[i].time_slot = time_slot;
-                scheduling_items[i].room_id = room;
+                scheduling_items[i].SetTimeSlot(time_slot);
+                scheduling_items[i].SetRoomId(room);
             }
             i++;
         }
@@ -133,7 +133,7 @@ Schedule academia::GreedyScheduler::PrepareNewSchedule(
 
     Schedule tmp;
     for (auto item : scheduling_items) {
-        tmp.InsertScheduleItem(SchedulingItem {item.course_id, item.teacher_id, item.room_id, item.time_slot, item.year});
+        tmp.InsertScheduleItem(SchedulingItem {item.CourseId(), item.TeacherId(), item.RoomId(), item.TimeSlot(), item.Year()});
     }
     return tmp;
 }
@@ -147,3 +147,10 @@ const int SchedulingItem::TeacherId() const { return teacher_id; }
 const int SchedulingItem::RoomId() const { return room_id; }
 const int SchedulingItem::TimeSlot() const { return time_slot; }
 const int SchedulingItem::Year() const { return year; }
+
+/**
+ * Setters
+ */
+
+void SchedulingItem::SetRoomId(int room_id_) { room_id = room_id_; }
+void SchedulingItem::SetTimeSlot(int time_slot_) { time_slot = time_slot_; }
