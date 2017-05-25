@@ -37,7 +37,7 @@ namespace academia {
         size_t Size() const; // zwaraca rozmiar planu
 
     private:
-        vector<SchedulingItem *> schedule_items;
+        vector<const SchedulingItem *> schedule_items;
     };
 
     class Scheduler {
