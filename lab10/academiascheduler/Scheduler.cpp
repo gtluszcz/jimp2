@@ -39,6 +39,9 @@ void Schedule::InsertScheduleItem(const academia::SchedulingItem &item) {
 size_t Schedule::Size() const {
     //
 }
+SchedulingItem Schedule::operator[](int id){
+    return *(schedule_items[id]);
+}
 
 /**
  * Scheduler
