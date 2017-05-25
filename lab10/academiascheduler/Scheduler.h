@@ -13,11 +13,11 @@ namespace academia {
     class SchedulingItem {
     public:
         SchedulingItem(int course_id, int teacher_id, int room_id, int time_slot, int year);
-        int CourseId();
-        int TeacherId();
-        int RoomId();
-        int TimeSlot();
-        int Year();
+        const int CourseId() const ;
+        const int TeacherId() const ;
+        const int RoomId() const ;
+        const int TimeSlot() const ;
+        const int Year() const;
 
     private:
         int course_id; // identyfikator kursu
@@ -35,7 +35,7 @@ namespace academia {
         vector<int> AvailableTimeSlots(int n_time_slots) const; // wylicza wektor jeszcze nie zajętych okien czasowych, gdzie n_time_slots jest maksymalną wartością okna czasowego
         void InsertScheduleItem(const SchedulingItem &item); // wstawia nowy element planu
         size_t Size() const; // zwaraca rozmiar planu
-        SchedulingItem operator[](int id);
+        const SchedulingItem & operator[](int id) const;
 
     private:
         vector<const SchedulingItem *> schedule_items;

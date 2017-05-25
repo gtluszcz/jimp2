@@ -17,19 +17,50 @@ SchedulingItem::SchedulingItem(int course_id, int teacher_id, int room_id, int t
  */
 
 Schedule Schedule::OfTeacher(int teacher_id) const {
-    //
+    Schedule tmp;
+    for (auto & el: schedule_items){
+        if (el->TeacherId() == teacher_id){
+            tmp.InsertScheduleItem(*el);
+        }
+    }
+    return tmp;
 }
 
 Schedule Schedule::OfRoom(int room_id) const {
-    //
+    Schedule tmp;
+    for (auto & el: schedule_items){
+        if (el->RoomId() == room_id){
+            tmp.InsertScheduleItem(*el);
+        }
+    }
+    return tmp;
 }
 
 Schedule Schedule::OfYear(int year) const {
-    //
+    Schedule tmp;
+    for (auto & el: schedule_items){
+        if (el->Year() == year){
+            tmp.InsertScheduleItem(*el);
+        }
+    }
+    return tmp;
 }
 
 vector<int> Schedule::AvailableTimeSlots(int n_time_slots) const {
-    //
+    vector<int> free_slots;
+    vector<int> bad_slots;
+    for (auto & el: schedule_items){
+        bad_slots.push_back(el->TimeSlot());
+    }
+    for (int i = 1; i <= n_time_slots; ++i) {
+        if (std::find(bad_slots.begin(),bad_slots.end(),i) != bad_slots.end()){
+
+        }
+        else{
+        free_slots.push_back(i);
+        }
+    }
+    return free_slots;
 }
 
 void Schedule::InsertScheduleItem(const SchedulingItem &item) {
@@ -39,7 +70,7 @@ void Schedule::InsertScheduleItem(const SchedulingItem &item) {
 size_t Schedule::Size() const {
     return schedule_items.size();
 }
-SchedulingItem Schedule::operator[](int id){
+const SchedulingItem & Schedule::operator[](int id) const {
     return *(schedule_items[id]);
 }
 
@@ -60,11 +91,11 @@ Schedule Scheduler::PrepareNewSchedule(
  * Getters
  */
 
-int SchedulingItem::CourseId() { return course_id; }
-int SchedulingItem::TeacherId() { return teacher_id; }
-int SchedulingItem::RoomId() { return room_id; }
-int SchedulingItem::TimeSlot() { return time_slot; }
-int SchedulingItem::Year() { return year; }
+const int SchedulingItem::CourseId() const  { return course_id; }
+const int SchedulingItem::TeacherId() const  { return teacher_id; }
+const int SchedulingItem::RoomId() const { return room_id; }
+const int SchedulingItem::TimeSlot() const  { return time_slot; }
+const int SchedulingItem::Year() const  { return year; }
 
 const vector<int> Scheduler::Rooms() { return rooms; }
 const map<int, vector<int>> Scheduler::TeacherCoursesAssignment() { return teacher_courses_assignment; }
