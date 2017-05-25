@@ -19,7 +19,7 @@ namespace academia {
         const int TimeSlot() const ;
         const int Year() const;
 
-    private:
+
         int course_id; // identyfikator kursu
         int teacher_id; // identyfikator nauczyciela akademickiego prowadzącego te zajęcia o tej godzinie
         int room_id; // identyfikator pomieszczenia w którym odbywają się zajęcia
@@ -37,37 +37,33 @@ namespace academia {
         size_t Size() const; // zwaraca rozmiar planu
         const SchedulingItem & operator[](int id) const;
 
-    private:
+
+
         vector<const SchedulingItem *> schedule_items;
     };
 
     class Scheduler {
     public:
-        Schedule PrepareNewSchedule(
+        virtual Schedule PrepareNewSchedule(
             const vector<int> &rooms,
             const map<int, vector<int>> &teacher_courses_assignment,
             const map<int, set<int>> &courses_of_year,
             int n_time_slots
         );
-
-        const vector<int> Rooms();
-        const map<int, vector<int>> TeacherCoursesAssignment();
-        const map<int, set<int>> CoursesOfYear();
-        int NTimeSlots();
-
-    private:
-        const vector<int> rooms; // dostępne pomieszczenia
-        const map<int, vector<int>> teacher_courses_assignment; // rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
-        const map<int, set<int>> courses_of_year; // kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
-        int n_time_slots; // ilość slotów czasowych
     };
 
     // Wyjątek wyrzucany, gdy nie udaje się stworzyć planu
     class NoViableSolutionFound {};
 
     // Wersja zachłanna implentacji algorytmu układacza planu
-    class GreedyScheduler {
-        //
+    class GreedyScheduler: public Scheduler {
+    public:
+        Schedule PrepareNewSchedule(
+                const vector<int> &rooms,
+                const map<int, vector<int>> &teacher_courses_assignment,
+                const map<int, set<int>> &courses_of_year,
+                int n_time_slots
+        );
     };
 }
 

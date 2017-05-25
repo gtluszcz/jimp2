@@ -74,6 +74,7 @@ const SchedulingItem & Schedule::operator[](int id) const {
     return *(schedule_items[id]);
 }
 
+
 /**
  * Scheduler
  */
@@ -87,6 +88,55 @@ Schedule Scheduler::PrepareNewSchedule(
     //
 }
 
+Schedule academia::GreedyScheduler::PrepareNewSchedule(const std::vector<int> &rooms,
+                                                                 const std::map<int, std::vector<int>> &teacher_courses_assignment,
+                                                                 const std::map<int, std::set<int>> &courses_of_year,
+                                                                 int n_time_slots) {
+
+    std::vector<SchedulingItem> scheduling;
+    std::vector<std::pair<int, int>> rooms_time_slots_pairs;
+    int number_of_courses;
+    for (auto year_courses : courses_of_year) {
+        for (auto course : year_courses.second) {
+            number_of_courses = 0;
+            for (auto teacher_courses : teacher_courses_assignment) {
+                number_of_courses += std::count(teacher_courses.second.begin(), teacher_courses.second.end(), course);
+            }
+            if ( number_of_courses > n_time_slots)
+                throw NoViableSolutionFound();
+        }
+    }
+
+    for(auto teacher_course : teacher_courses_assignment) {
+        for(auto course : teacher_course.second) {
+            for(auto year_course : courses_of_year) {
+                if(year_course.second.find(course) != year_course.second.end())
+                    scheduling.push_back(SchedulingItem(course, teacher_course.first, 0, 0, year_course.first));
+            }
+        }
+    }
+
+    if(scheduling.size() > rooms.size() * n_time_slots)
+        throw NoViableSolutionFound{};
+
+    int i =0;
+    for(auto room : rooms) {
+        for (int time_slot = 1; time_slot <= n_time_slots; time_slot++){
+            if(i<scheduling.size()) {
+                scheduling[i].time_slot = time_slot;
+                scheduling[i].room_id = room;
+            }
+            i++;
+        }
+    }
+    
+    Schedule newone;
+    for(auto item: scheduling){
+        newone.InsertScheduleItem(SchedulingItem{item.course_id, item.teacher_id, item.room_id, item.time_slot, item.year});
+    }
+    return newone;
+}
+
 /**
  * Getters
  */
@@ -97,7 +147,3 @@ const int SchedulingItem::RoomId() const { return room_id; }
 const int SchedulingItem::TimeSlot() const  { return time_slot; }
 const int SchedulingItem::Year() const  { return year; }
 
-const vector<int> Scheduler::Rooms() { return rooms; }
-const map<int, vector<int>> Scheduler::TeacherCoursesAssignment() { return teacher_courses_assignment; }
-const map<int, set<int>> Scheduler::CoursesOfYear() { return courses_of_year; }
-int Scheduler::NTimeSlots() { return n_time_slots; }
