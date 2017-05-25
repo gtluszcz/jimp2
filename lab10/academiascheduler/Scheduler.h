@@ -35,6 +35,9 @@ namespace academia {
         vector<int> AvailableTimeSlots(int n_time_slots) const; // wylicza wektor jeszcze nie zajętych okien czasowych, gdzie n_time_slots jest maksymalną wartością okna czasowego
         void InsertScheduleItem(const SchedulingItem &item); // wstawia nowy element planu
         size_t Size() const; // zwaraca rozmiar planu
+
+    private:
+        vector<SchedulingItem *> schedule_items;
     };
 
     class Scheduler {

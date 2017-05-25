@@ -33,7 +33,7 @@ vector<int> Schedule::AvailableTimeSlots(int n_time_slots) const {
 }
 
 void Schedule::InsertScheduleItem(const academia::SchedulingItem &item) {
-    //
+    schedule_items.push_back(&item);
 }
 
 size_t Schedule::Size() const {
