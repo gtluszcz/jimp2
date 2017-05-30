@@ -1,18 +1,26 @@
-//
-// Created by tlusgrze on 23.05.17.
-//
-#include "Factorymethod.h"
 #include <iostream>
-using namespace std;
+#include <vector>
+#include "FactoryMethod.h"
 
-//template <class one>
-//one Sum(one left,one right){
-//    return left + right;
-//};
+using std::cout;
+using factoryMethod::Create;
+using factoryMethod::MyType;
 
-int main(){
-//    Factory<int> obiekt;
-//     obiekt.factorymethod<int>();
-    cout<<Sum(3.1,4.2);
+int main() {
+    int i = Create<int>();
+    cout << (0 == i);
 
+    double d = Create<double>();
+    cout << (0.0 == d);
+
+    std::string s = Create<std::string>();
+    cout << ("" == s);
+
+    std::vector<double> v = Create<std::vector<double>>();
+    cout << (0 == v.size());
+
+    MyType m = Create<MyType>();
+    cout << (strcmp("hello", m.SayHello()) == 0);
+
+    return 0;
 }
