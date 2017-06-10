@@ -1,3 +1,6 @@
 project(lab11)
 
 add_subdirectory_if_exists(factorymethod)
+add_subdirectory_if_exists(summethod)
+add_subdirectory_if_exists(meanmethod)
+add_subdirectory_if_exists(logger)

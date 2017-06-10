@@ -11,7 +11,6 @@
 using ::nets::View;
 using ::std::make_unique;
 using ::utility::FromString;
-
 using TestArgument = std::pair<std::string, std::map<std::string, std::string>>;
 using TestExpected = std::string;
 using TestParam = std::pair<TestArgument, TestExpected>;
