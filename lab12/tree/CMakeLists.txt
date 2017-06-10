@@ -10,4 +10,3 @@ target_include_directories(libtree PUBLIC .)
 add_executable(tree ${SOURCE_FILES} main.cpp)
 
 target_link_libraries(tree libtree)
-
