@@ -2,10 +2,10 @@
 #include "Tree.h"
 
 using namespace tree;
+using namespace std;
 
 int main() {
-    int liczba = 8;
-    Tree<int> newtree = Tree<int>();
-    newtree.Addchild(8);
-    newtree.Printtree();
+    Tree<int> tree {5};
+    cout << "Root:" << tree.Value() << endl;
+    cout << "Size: " << tree.Size() << endl;
 }
