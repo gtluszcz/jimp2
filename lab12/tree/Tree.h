@@ -33,7 +33,7 @@ namespace tree {
         Tree(T value);
         Node<T> * Search(T value);
         Node<T> * RealSearch(Node<T> * node, T value);
-        void Printnode(Node<T> * root);
+        void Printnode(Node<T> * node);
         void Printtree();
         int Size();
         int Depth();
@@ -139,10 +139,10 @@ namespace tree {
     }
 
     template<class T>
-    void Tree<T>::Printnode(Node<T> * root) {
-        std::cout << root->key << std::endl;
-        if (root->left != nullptr) Printnode(root->left);
-        if (root->right != nullptr) Printnode(root->right);
+    void Tree<T>::Printnode(Node<T> * node) {
+        std::cout << node->key << std::endl;
+        if (node->left != nullptr) Printnode(node->left);
+        if (node->right != nullptr) Printnode(node->right);
     }
 
     template<class T>
