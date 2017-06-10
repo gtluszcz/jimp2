@@ -1,6 +1,3 @@
-//
-// Created by tlusgrze on 16.05.17.
-//
 #include <algorithm>
 #include "Algo.h"
 bool pred(const int &a, int partition){
