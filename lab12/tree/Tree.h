@@ -130,6 +130,7 @@ namespace tree {
         if (x == nullptr || k == x->key) {
             return x;
         }
+
         if (k < x->key) {
             return RealSearch(x->left, k);
         } else {
