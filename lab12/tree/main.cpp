@@ -34,4 +34,6 @@ int main() {
     cout << "Root:" << (5 == tree.Value()) << endl;
     cout << "Size: " << (6 == tree.Size()) << endl;
     cout << "Depth: " << (3 == tree.Depth()) << endl;
+
+    tree.PrintTree();
 }
