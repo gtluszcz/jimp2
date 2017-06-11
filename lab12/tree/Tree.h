@@ -2,8 +2,11 @@
 #define JIMP_EXERCISES_TREE_H
 
 #include <iostream>
+#include <vector>
 #include "Node.h"
 #include "Node.cpp"
+
+using std::vector;
 
 namespace tree {
     template<class T>
