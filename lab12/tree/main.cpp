@@ -36,5 +36,11 @@ int main() {
     cout << "Size: " << (6 == tree.Size()) << endl;
     cout << "Depth: " << (3 == tree.Depth()) << endl;
 
-    tree.PrintTree();
+//    tree.PrintTree();
+    tree.PrintPreorder();
+    cout << endl;
+    tree.PrintInorder();
+    cout << endl;
+    tree.PrintPostorder();
+    cout << endl;
 }

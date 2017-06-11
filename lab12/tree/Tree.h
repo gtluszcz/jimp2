@@ -22,6 +22,12 @@ namespace tree {
         void Insert(T value);
         Node<T> * root;
         int MaxDepth(Node<T> * node);
+        void PrintPreorder();
+        void PrintPreorder(Node<T> * node);
+        void PrintInorder();
+        void PrintInorder(Node<T> * node);
+        void PrintPostorder();
+        void PrintPostorder(Node<T> * node);
 
         int size;
     };

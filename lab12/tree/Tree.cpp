@@ -105,4 +105,46 @@ namespace tree {
     void Tree<T>::PrintTree() {
         PrintNode(this->root);
     }
+
+    template<class T>
+    void Tree<T>::PrintPreorder(Node<T> * node) {
+        if (node == nullptr) return;
+
+        std::cout << node->value << " ";
+        PrintPreorder(node->left);
+        PrintPreorder(node->right);
+    }
+
+    template<class T>
+    void Tree<T>::PrintInorder(Node<T> * node) {
+        if (node == nullptr) return;
+
+        PrintPreorder(node->left);
+        std::cout << node->value << " ";
+        PrintPreorder(node->right);
+    }
+
+    template<class T>
+    void Tree<T>::PrintPostorder(Node<T> * node) {
+        if (node == nullptr) return;
+
+        PrintPreorder(node->left);
+        PrintPreorder(node->right);
+        std::cout << node->value << " ";
+    }
+
+    template<class T>
+    void Tree<T>::PrintPreorder() {
+        PrintPreorder(root);
+    }
+
+    template<class T>
+    void Tree<T>::PrintInorder() {
+        PrintInorder(root);
+    }
+
+    template<class T>
+    void Tree<T>::PrintPostorder() {
+        PrintPostorder(root);
+    }
 }
