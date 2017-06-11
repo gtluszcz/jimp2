@@ -51,5 +51,5 @@ bool Teacher::operator !=(Teacher a) const {
 size_t TeacherHash::operator()(const Teacher &teacher) const {
     size_t h1 = std::hash<std::string>{}(teacher.Name());
     size_t h2 = std::hash<std::string>{}(teacher.Department());
-    return (size_t) (teacher.Id() * h1 + h2);
+    return  teacher.Id() * h1 + h2;
 }
