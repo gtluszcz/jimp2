@@ -9,7 +9,20 @@ namespace tree {
 
     template<class T>
     Tree<T>::~Tree() {
-        // go through each node postorder and 'delete' it
+        DeleteTree(root);
+    }
+
+    template<class T>
+    void Tree<T>::DeleteTree(Node<T> * node) {
+        if (node == nullptr) return;
+
+        if (node->left == nullptr && node->right == nullptr) {
+            delete node;
+            return;
+        }
+
+        DeleteTree(node->left);
+        DeleteTree(node->right);
     }
 
     template<class T>

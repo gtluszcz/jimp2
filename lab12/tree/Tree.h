@@ -11,6 +11,7 @@ namespace tree {
     public:
         Tree();
         ~Tree();
+        void DeleteTree(Node<T> * node);
         Tree(T value);
         Node<T> * Search(T value);
         Node<T> * Search(Node<T> * node, T value);
