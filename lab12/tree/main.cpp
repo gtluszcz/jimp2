@@ -1,14 +1,46 @@
-//
-// Created by tlusgrze on 30.05.17.
-//
-
 #include <iostream>
 #include "Tree.h"
-using namespace tree;
-int main(){
-    int liczba = 8;
-    Tree<int>newtree =  Tree<int>();
-    newtree.Addchild(8);
-    newtree.Printtree();
-}
+#include "Tree.cpp"
 
+using namespace tree;
+using namespace std;
+
+int main() {
+    Tree<int> tree {5};
+    cout << "Root:" << (5 == tree.Value()) << endl;
+    cout << "Size: " << (1 == tree.Size()) << endl;
+    cout << "Depth: " << (1 == tree.Depth()) << endl;
+
+    tree.Insert(0);
+    cout << "Root:" << (5 == tree.Value()) << endl;
+    cout << "Size: " << (2 == tree.Size()) << endl;
+    cout << "Depth: " << (2 == tree.Depth()) << endl;
+
+    tree.Insert(102);
+    cout << "Root:" << (5 == tree.Value()) << endl;
+    cout << "Size: " << (3 == tree.Size()) << endl;
+    cout << "Depth: " << (2 == tree.Depth()) << endl;
+
+    tree.Insert(890);
+    cout << "Root:" << (5 == tree.Value()) << endl;
+    cout << "Size: " << (4 == tree.Size()) << endl;
+    cout << "Depth: " << (3 == tree.Depth()) << endl;
+
+    tree.Insert(81);
+    cout << "Root:" << (5 == tree.Value()) << endl;
+    cout << "Size: " << (5 == tree.Size()) << endl;
+    cout << "Depth: " << (3 == tree.Depth()) << endl;
+
+    tree.Insert(-1);
+    cout << "Root:" << (5 == tree.Value()) << endl;
+    cout << "Size: " << (6 == tree.Size()) << endl;
+    cout << "Depth: " << (3 == tree.Depth()) << endl;
+
+//    tree.PrintTree();
+    tree.PrintPreorder();
+    cout << endl;
+    tree.PrintInorder();
+    cout << endl;
+    tree.PrintPostorder();
+    cout << endl;
+}
