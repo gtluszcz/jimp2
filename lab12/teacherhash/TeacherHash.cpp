@@ -38,13 +38,11 @@ std::string Teacher::Department() const{
 }
 
 bool Teacher::operator ==(Teacher a) const {
-    if (this->Id_ == a.Id() && this->workspace_ == a.Department() && this->name_ == a.Name()){ return true; }
-    else { return false; }
+    return (this->Id_ == a.Id() && this->workspace_ == a.Department() && this->name_ == a.Name());
 }
 
 bool Teacher::operator !=(Teacher a) const {
-    if (this->Id_ != a.Id() || this->workspace_ != a.Department() || this->name_ != a.Name()){ return true; }
-    else { return false; }
+    return (this->Id_ != a.Id() || this->workspace_ != a.Department() || this->name_ != a.Name());
 }
 
 //TeacherHash
