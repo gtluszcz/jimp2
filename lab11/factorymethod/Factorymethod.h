@@ -1,16 +1,17 @@
-#ifndef JIMP_EXERCISES_FACTORYMETHOD_H
-#define JIMP_EXERCISES_FACTORYMETHOD_H
+//
+// Created by tlusgrze on 23.05.17.
+//
 
-namespace factoryMethod {
-    template<class T>
-    T Create() {
-        return *(new T);
-    }
+#ifndef JIMP_EXERCISES_FACTORY_H
+#define JIMP_EXERCISES_FACTORY_H
 
-    class MyType {
-    public:
-        const char * SayHello();
-    };
-}
+//template<class T>
+//class Factory{
+//    public:
+//        void factorymethod();
+//};
 
-#endif //JIMP_EXERCISES_FACTORYMETHOD_H
+template <class one>
+one Sum(one left,one right);
+
+#endif //JIMP_EXERCISES_FACTORY_H
