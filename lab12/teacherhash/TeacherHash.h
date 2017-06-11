@@ -7,7 +7,9 @@
 
 #include <string>
 
+
 namespace academia{
+
     class TeacherId{
     public:
         TeacherId();
@@ -22,9 +24,9 @@ namespace academia{
     class Teacher{
     public:
         Teacher(TeacherId id, std::string name, std::string workspace);
-        TeacherId Id();
-        std::string Name();
-        std::string Department();
+        TeacherId Id() const;
+        std::string Name() const;
+        std::string Department() const;
         bool operator ==(Teacher a) const;
         bool operator !=(Teacher a) const;
     private:
@@ -35,8 +37,10 @@ namespace academia{
 
     class TeacherHash{
     public:
-        int operator ()(const Teacher teacher) const;
+        size_t operator ()(const Teacher &teacher) const;
     };
 }
+
+
 
 #endif //JIMP_EXERCISES_TEACHERHASH_H
