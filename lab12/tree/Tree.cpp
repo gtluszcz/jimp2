@@ -1,6 +1,59 @@
 #include "Tree.h"
 
 namespace tree {
+    static vector<int> result;
+
+    template<class T>
+    vector<int> PreOrder(Node<T> * node) {
+        if (node == nullptr) return result;
+
+        result.push_back(node->key);
+        PreOrder(node->left);
+        PreOrder(node->right);
+
+        return result;
+    }
+
+    template<class T>
+    vector<int> PreOrder(Tree<T> * tree) {
+        result.clear();
+        return PreOrder(tree->root);
+    }
+
+    template<class T>
+    vector<int> InOrder(Node<T> * node) {
+        if (node == nullptr) return result;
+
+        PreOrder(node->left);
+        result.push_back(node->key);
+        PreOrder(node->right);
+
+        return result;
+    }
+
+    template<class T>
+    vector<int> InOrder(Tree<T> * tree) {
+        result.clear();
+        return InOrder(tree->root);
+    }
+
+    template<class T>
+    vector<int> PostOrder(Node<T> * node) {
+        if (node == nullptr) return result;
+
+        PreOrder(node->left);
+        PreOrder(node->right);
+        result.push_back(node->key);
+
+        return result;
+    }
+
+    template<class T>
+    vector<int> PostOrder(Tree<T> * tree) {
+        result.clear();
+        return PostOrder(tree->root);
+    }
+
     template<class T>
     Tree<T>::Tree() {
         this->root = nullptr;
@@ -9,7 +62,20 @@ namespace tree {
 
     template<class T>
     Tree<T>::~Tree() {
-        // go through each node postorder and 'delete' it
+        DeleteTree(root);
+    }
+
+    template<class T>
+    void Tree<T>::DeleteTree(Node<T> * node) {
+        if (node == nullptr) return;
+
+        if (node->left == nullptr && node->right == nullptr) {
+            delete node;
+            return;
+        }
+
+        DeleteTree(node->left);
+        DeleteTree(node->right);
     }
 
     template<class T>

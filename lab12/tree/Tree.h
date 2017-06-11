@@ -2,8 +2,11 @@
 #define JIMP_EXERCISES_TREE_H
 
 #include <iostream>
+#include <vector>
 #include "Node.h"
 #include "Node.cpp"
+
+using std::vector;
 
 namespace tree {
     template<class T>
@@ -11,6 +14,7 @@ namespace tree {
     public:
         Tree();
         ~Tree();
+        void DeleteTree(Node<T> * node);
         Tree(T value);
         Node<T> * Search(T value);
         Node<T> * Search(Node<T> * node, T value);

@@ -1,7 +1,6 @@
 project(lab12)
 
 add_subdirectory_if_exists(tree)
-add_subdirectory_if_exists(treeiterators)
 add_subdirectory_if_exists(timerecorder)
 add_subdirectory_if_exists(teacherhash)
 add_subdirectory_if_exists(sequentialgenerator)
