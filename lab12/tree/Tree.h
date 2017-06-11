@@ -13,15 +13,14 @@ namespace tree {
         ~Tree();
         Tree(T value);
         Node<T> * Search(T value);
-        Node<T> * RealSearch(Node<T> * node, T value);
-        void PrintNode(Node<T> * node);
-        void PrintTree();
+        Node<T> * Search(Node<T> * node, T value);
         int Size();
-        int Depth();
         T Value();
         void Insert(T value);
-        Node<T> * root;
-        int MaxDepth(Node<T> * node);
+        int Depth();
+        int Depth(Node<T> * node);
+        void PrintNode(Node<T> * node);
+        void PrintTree();
         void PrintPreorder();
         void PrintPreorder(Node<T> * node);
         void PrintInorder();
@@ -29,6 +28,7 @@ namespace tree {
         void PrintPostorder();
         void PrintPostorder(Node<T> * node);
 
+        Node<T> * root;
         int size;
     };
 }

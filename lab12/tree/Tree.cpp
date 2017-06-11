@@ -31,15 +31,15 @@ namespace tree {
 
     template<class T>
     int Tree<T>::Depth() {
-        return MaxDepth(root);
+        return Depth(root);
     }
 
     template<class T>
-    int Tree<T>::MaxDepth(Node<T> * node) {
+    int Tree<T>::Depth(Node<T> * node) {
         if (node == nullptr) return 0;
 
-        int lDepth = MaxDepth(node->left);
-        int rDepth = MaxDepth(node->right);
+        int lDepth = Depth(node->left);
+        int rDepth = Depth(node->right);
 
         if (lDepth > rDepth) {
             return lDepth + 1;
@@ -78,19 +78,19 @@ namespace tree {
 
     template<class T>
     Node<T> * Tree<T>::Search(T value) {
-        return RealSearch(root, value);
+        return Search(root, value);
     }
 
     template<class T>
-    Node<T> * Tree<T>::RealSearch(Node<T> * x, T k) {
+    Node<T> * Tree<T>::Search(Node<T> * x, T k) {
         if (x == nullptr || k == x->key) {
             return x;
         }
 
         if (k < x->key) {
-            return RealSearch(x->left, k);
+            return Search(x->left, k);
         } else {
-            return RealSearch(x->right, k);
+            return Search(x->right, k);
         }
     }
 
